@@ -15,6 +15,7 @@ const io = socketIo(server, {
     }
 })
 
+
 io.on("connection", (socket) => {
 
     socket.on("joinRoom", (activeRoomName) => {
@@ -48,7 +49,7 @@ server.listen(PORT, () => {
     console.log(`Server Started on PORT: ${PORT}`)
 })
 
-process.on('unhandledRejection', (err, promise) => {
-    console.log(`Error: ${err}`)
-    server.close(()=>process.exit(1))
-})
+// process.on('unhandledRejection', (err, promise) => {
+//     console.log(`Error: ${err}`)
+//     server.close(()=>process.exit(1))
+// })
