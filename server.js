@@ -35,6 +35,9 @@ app.use(cors())
 
 app.use('/api', userAuth)
 app.use('/api', messageRoute)
+app.use('/', (req, res) => {
+    res.send('chatapp backend')
+})
 
 
 connectDB()
