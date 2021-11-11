@@ -5,7 +5,7 @@ const verifyToken = (req, res, next) => {
     if (!authHeader) return res.status(401).json({ error: "You are not authenticated!" })
     const accessToken = authHeader.split(' ')[1]
 
-    jwt.verify(accessToken, process.env.TOKEN_SECRET, (err, user) => {
+    jwt.verify(accessToken, '1234', (err, user) => {
         if (err) return res.status(403).json({ error: "Invalid Token" })
         req.user = user
         next()

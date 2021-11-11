@@ -12,7 +12,7 @@ router.post('/login', async(req, res) => {
         
         const isMatch = await user.matchPassword(req.body.password)
         if(!isMatch) return res.json({ error: "Invalid Credentials" })
-        const accessToken = jwt.sign({username: user.username, _id:user._id}, process.env.TOKEN_SECRET)
+        const accessToken = jwt.sign({username: user.username, _id:user._id}, '1234')
         const {password, email, ...other} = user._doc
 
         res.status(200).json({...other, accessToken})
